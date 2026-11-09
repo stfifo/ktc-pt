@@ -1,0 +1,18 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Apple SD Gothic Neo, IBM Plex Sans KR, Noto Sans KR, sans-serif",
+    "fontSize": "26px",
+    "lineColor": "#3F4753",
+    "primaryTextColor": "#111721",
+    "edgeLabelBackground": "#FFFFFF"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "basis",
+    "nodeSpacing": 18,
+    "rankSpacing": 28,
+    "padding": 10,
+    "wrappingWidth": 420
+  }
+}

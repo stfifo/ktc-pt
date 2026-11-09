@@ -1,0 +1,14 @@
+flowchart LR
+  A[기준 버전 확인] --> B[본문 확인] --> C[사건 추출] --> D[표기 연결] --> E[후보 종목] --> F[해당 판정] --> G[보정 후 저장]
+  A -.불일치.-> X1[멈춤]
+  B -.본문 없음 · 너무 김.-> X2[건너뜀]
+  C -.LLM 실패.-> X3[그 카드만 failed]
+  D -.LLM 실패.-> X3
+  F -.LLM 실패.-> X3
+  classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
+  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
+  class A,B,E,G code
+  class C,D,F llm
+  class X1,X2,X3 stop

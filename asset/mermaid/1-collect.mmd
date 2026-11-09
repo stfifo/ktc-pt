@@ -1,0 +1,22 @@
+flowchart LR
+  A[범위 확인] --> B[출처별 수집]
+  B --> N[뉴스]
+  B --> T[텔레그램]
+  B --> P[증권사 리포트]
+  B --> G[DART 공시]
+  N --> C[본문 처리]
+  P --> C
+  C --> D[공통 자료 ID 등록]
+  T --> D
+  G --> D
+  A -.범위 밖.-> X1[수집 안 함]
+  B -.API 오류.-> X2[멈춤]
+  C -.본문 실패.-> F1[사유와 함께 저장]
+  D --> NEXT[② 분류로]
+  classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
+  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
+  class A,B,N,T,P,G,C,D,NEXT code
+  class F1 fb
+  class X1,X2 stop
