@@ -8,6 +8,8 @@
   const notesText = document.getElementById('notesText');
   const videoBox = document.getElementById('videoBox');
   const video = document.getElementById('demoVideo');
+  const secnav = document.getElementById('secnav');
+  const secItems = Array.from(secnav.querySelectorAll('[data-sec]'));
   let current = 0;
 
   const fromHash = () => {
@@ -31,6 +33,9 @@
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === slides.length - 1;
     document.body.classList.toggle('on-dark', slides[current].classList.contains('slide--dark'));
+    const sec = slides[current].dataset.sec;
+    secnav.hidden = !sec;
+    secItems.forEach((el) => el.classList.toggle('is-current', el.dataset.sec === sec));
     if (video && !slides[current].contains(video)) video.pause();
     updateNotes();
   };
