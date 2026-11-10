@@ -108,6 +108,31 @@
     video.addEventListener('click', () => video.blur());
   }
 
+  // 10~16번 슬라이드의 h2를 11번 슬라이드 h2의 위치로 옮긴다.
+  // transform 은 레이아웃에 영향을 주지 않으므로 본문은 원래 자리에 그대로 있다.
+  const pinTitles = () => {
+    const pinned = slides.filter((s) => s.dataset.sec === '5' || s.dataset.sec === '6');
+    const ref = slides.find((s) => s.classList.contains('slide--wf'));
+    if (!ref || !pinned.length) return;
+    const place = (s) => {
+      const h = s.querySelector('h2');
+      if (!h) return null;
+      h.style.transform = 'none';
+      const sr = s.getBoundingClientRect();
+      const hr = h.getBoundingClientRect();
+      return { h, x: hr.left - sr.left, y: hr.top - sr.top };
+    };
+    const target = place(ref);
+    if (!target) return;
+    pinned.forEach((s) => {
+      const p = place(s);
+      if (p) p.h.style.transform = `translate(${target.x - p.x}px, ${target.y - p.y}px)`;
+    });
+  };
+  window.addEventListener('resize', pinTitles);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(pinTitles);
+  pinTitles();
+
   window.addEventListener('hashchange', () => { current = fromHash(); render(); });
 
   current = fromHash();
