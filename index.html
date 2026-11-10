@@ -22,7 +22,7 @@
     <section class="slide slide--cover">
       <p class="eyebrow">KAKAO TECH CAMPUS 4기 - 부산대 5팀 FOMO도로</p>
       <h1>MarketLit</h1>
-      <p class="lead">종목이 왜 움직였는지,<br>근거와 함께 알려주는 초보자용 서비스</p>
+      <p class="lead">종목이 왜 움직였는지,<br>근거와 함께 알려주는<br>초보자용 주식 보고서 서비스</p>
       <p class="meta">AI: 김수연, 이학영<br>BE+FE: 강무진, 최지은<br>BE+Infra: 안지원</p>
       <aside class="notes">[0:00–0:08] 안녕하세요, 부산대 5팀 FOMO도로입니다. 저희가 만든 MarketLit을 소개합니다.</aside>
     </section>
@@ -42,35 +42,49 @@
     </section>
 
     <!-- 3 문제 인식 · 상황 -->
-    <section data-sec="1" class="slide">
-      <p class="eyebrow">01 문제 인식</p>
-      <h2>시세는 보이는데,<br>이유는 보이지 않습니다</h2>
-      <div class="split">
-        <div class="hero-card">
-          <p class="hero-card__label">내 종목</p>
-          <p class="hero-card__num num">−X%</p>
-          <p class="hero-card__why">왜?</p>
+    <section data-sec="1" class="slide slide--situation">
+      <div class="situation">
+        <div class="situation__text">
+          <h2>주린이의 2026</h2>
+          <ul class="kw">
+            <li><span class="kw__tag">2026 상반기</span><span class="kw__main">FOMO로 주린이 유입 급증</span></li>
+            <li class="is-key"><span class="kw__tag">6월 → 7월</span><span class="kw__main">코스피 <mark class="stat">−38%</mark></span></li>
+            <li><span class="kw__tag">결과</span><span class="kw__main">상당수 <b class="hl">손실 구간</b></span></li>
+          </ul>
         </div>
-        <ul class="bullets bullets--lg">
-          <li>등락률은 <b class="hl">보임</b></li>
-          <li>이유는 <b class="hl">없음</b></li>
-          <li>직접 <b class="hl">뒤져야</b> 함</li>
-        </ul>
+        <figure class="situation__fig">
+          <img src="asset/problem-kospi.jpg" alt="코스피 추이: 6월 22일 9,114.55에서 7월 29일 5,663.24로 하락, 10월 13일 6,035.35 (연합뉴스)">
+        </figure>
       </div>
-      <aside class="notes">[0:15–0:35] 주식 앱을 열면 내 종목이 −X% 라는 숫자는 바로 보입니다. 하지만 왜 떨어졌는지는 보이지 않습니다. 이유를 알려면 여러 곳을 직접 뒤져야 합니다. (−X% 는 시연 종목의 실제 수치로 바꿔도 됩니다.)</aside>
+      <aside class="notes">[0:15–0:30] 상반기 상승장에 FOMO로 투자자가 몰렸습니다. 그런데 코스피는 6월 22일 9,114에서 7월 29일 5,663까지 약 38% 빠졌고, 상당수가 손실 구간에 갇혔습니다. (그래프는 연합뉴스 자료입니다. "상당수"와 "FOMO 유입 급증"은 출처가 있을 때만 수치로 말하세요.)</aside>
     </section>
 
-    <!-- 4 문제 인식 · 원인 -->
+    <!-- 4 문제 인식 · 막히는 지점 -->
     <section data-sec="1" class="slide">
       <p class="eyebrow">01 문제 인식</p>
-      <h2>이유를 알기 어려운<br><b class="hl">3가지</b> 원인</h2>
-      <ul class="causes">
-        <li class="card"><p class="card__problem">원인 1</p><h3>이유가 <b class="hl">흩어짐</b></h3><p>뉴스 · 리포트 · 공시 · 텔레그램</p></li>
-        <li class="card"><p class="card__problem">원인 2</p><h3>용어가 <b class="hl">어려움</b></h3><p>공시 · 수급 · PER</p></li>
-        <li class="card"><p class="card__problem">원인 3</p><h3>AI 답변은 <b class="hl">출처 없음</b></h3><p>맞는지 확인 불가</p></li>
-      </ul>
-      <p class="callout"><strong>결과</strong> 이유 모른 채 <b class="hl">숫자만</b> 봄</p>
-      <aside class="notes">[0:35–0:50] 이유를 이해하기 어려운 원인은 세 가지입니다. 첫째, 이유가 뉴스, 리포트, 공시, 텔레그램에 흩어져 있습니다. 둘째, 읽어도 공시, 수급, PER 같은 용어가 어렵습니다. 셋째, AI에게 물으면 출처를 알 수 없는 답이 돌아와서 맞는지 확인할 수 없습니다. 그래서 초보자는 이유를 모른 채 숫자만 보게 됩니다. (통계를 넣으려면 출처가 확실한 수치만 사용하세요.)</aside>
+      <h2>찾아도, 공부해도<br>막힘</h2>
+      <div class="blocks">
+        <div class="block">
+          <p class="block__label">시도 1</p>
+          <h3>정보를 찾아본다</h3>
+          <ul class="bullets">
+            <li>뭘 검색할지 <b class="hl">모름</b></li>
+            <li>맞는 말인지 <b class="hl">판단 불가</b></li>
+            <li>채널마다 <b class="hl">말이 다름</b></li>
+            <li>모르는 용어에서 <b class="hl">멈춤</b></li>
+          </ul>
+        </div>
+        <div class="block">
+          <p class="block__label">시도 2</p>
+          <h3>기초부터 공부한다</h3>
+          <ul class="bullets">
+            <li>범위가 <b class="hl">방대</b></li>
+            <li>시작점을 <b class="hl">못 잡음</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="callout"><strong>MarketLit</strong> 흩어진 정보를 <b class="hl">근거</b>와 함께 정리하고, 막히는 개념은 그 자리에서 <b class="hl">학습</b></p>
+      <aside class="notes">[0:30–0:50] 손실을 만회하려 해도 막힙니다. 정보를 찾으면 뭘 검색할지, 맞는 말인지 알 수 없고, 채널마다 말이 다르고, 모르는 용어에서 멈춥니다. 기초부터 공부하자니 범위가 방대합니다. (아래 한 줄은 다음 질문으로 넘어가는 연결입니다.)</aside>
     </section>
 
     <!-- 5 문제 인식 · 질문 -->
