@@ -108,10 +108,10 @@
     video.addEventListener('click', () => video.blur());
   }
 
-  // 10~16번 슬라이드의 h2를 11번 슬라이드 h2의 위치로 옮긴다.
+  // 05~07 섹션(10~19번) 슬라이드의 h2를 12번(수집) 슬라이드 h2의 위치로 옮긴다.
   // transform 은 레이아웃에 영향을 주지 않으므로 본문은 원래 자리에 그대로 있다.
   const pinTitles = () => {
-    const pinned = slides.filter((s) => s.dataset.sec === '5' || s.dataset.sec === '6');
+    const pinned = slides.filter((s) => ['5', '6', '7'].includes(s.dataset.sec));
     const ref = slides.find((s) => s.classList.contains('slide--wf'));
     if (!ref || !pinned.length) return;
     const place = (s) => {

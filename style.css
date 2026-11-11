@@ -619,17 +619,17 @@ mark.stat { background: var(--brand-100); font-weight: 700; padding: 2px 12px; b
 .end__qr img { width: 100%; height: 100%; object-fit: contain; display: block; }
 @media (max-width: 900px) { .end { grid-template-columns: 1fr; } }
 
-/* 10~16번: h2는 script.js가 transform으로 11번 슬라이드의 위치에 맞춘다(본문 배치는 그대로) */
-.slide[data-sec="5"] h2, .slide[data-sec="6"] h2 { will-change: transform; }
+/* 10~19번(05~07 섹션): h2는 script.js가 transform으로 12번(수집) 슬라이드의 위치에 맞춘다(본문 배치는 그대로) */
+.slide[data-sec="5"] h2, .slide[data-sec="6"] h2, .slide[data-sec="7"] h2 { will-change: transform; }
 
 /* 10번(AI 에이전트 4단계)·16번(확장) 카드: 옅은 회색 테두리 */
 .wf-stages { gap: clamp(16px, 1.8vw, 28px); }
-.wf-stages .card, .wf-stages .card.is-key, .slide[data-sec="6"] .cols .card {
+.wf-stages .card, .wf-stages .card.is-key, .slide:is([data-sec="5"], [data-sec="6"], [data-sec="7"]) .cols .card {
   border: 1px solid var(--divider);
   border-radius: var(--radius-lg);
   padding: clamp(16px, 1.8vw, 26px);
 }
-.slide[data-sec="6"] .cols { gap: clamp(16px, 1.8vw, 28px); }
+.slide:is([data-sec="5"], [data-sec="6"], [data-sec="7"]) .cols { gap: clamp(16px, 1.8vw, 28px); }
 
 /* 4번: 제목과 카드 사이 간격 확대 (3번 슬라이드에는 영향 없음) */
 .slide:has(.blocks) h2 { margin-bottom: clamp(40px, 7vh, 72px); }
@@ -658,3 +658,21 @@ mark.stat { background: var(--brand-100); font-weight: 700; padding: 2px 12px; b
   display: block; min-width: 0; height: auto; padding: 0; margin-bottom: 8px;
   border-radius: 0; background: none; color: var(--brand); font-size: clamp(16px, 1.6vw, 24px);
 }
+
+/* 06 평가: 카드 3개 아래에 핵심 숫자 한 줄 */
+.result-bar { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 40px); margin-top: clamp(20px, 3.4vh, 40px); padding: clamp(14px, 2vh, 24px) clamp(20px, 2.4vw, 36px); background: var(--brand-100); border-radius: var(--radius-lg); align-self: flex-start; }
+.result-bar__label { color: var(--brand-800); font-size: clamp(16px, 1.8vw, 26px); }
+.result-bar__num { font-size: clamp(40px, 5vw, 72px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.slide:has(.result-bar) .cols { margin-bottom: 0; }
+.slide:has(.result-bar) .result-bar { margin-bottom: auto; }
+
+/* 4단계 카드 상단 전체 흐름 그림: 제목 아래 남는 공간의 위쪽, 카드는 그림 바로 아래 */
+.wf-overview { margin: 0 0 clamp(16px, 2.6vh, 32px); }
+.wf-overview img { display: block; width: 100%; height: auto; }
+.slide:has(.wf-stages) h2 + .wf-overview { margin-top: auto; }
+.wf-cap { display: flex; justify-content: center; gap: clamp(16px, 2.4vw, 40px); flex-wrap: wrap; margin-top: 8px; color: var(--neutral-700); font-size: clamp(12px, 1.1vw, 16px); }
+.cap { display: inline-flex; align-items: center; gap: 8px; }
+.cap::before { content: ""; width: 22px; height: 14px; border-radius: 3px; border: 1.5px solid; }
+.cap--llm::before { background: #ffe6cc; border-color: #e0803a; }
+.cap--code::before { background: #dae8fc; border-color: #5b7fd0; }
+.cap--db::before { background: #eeeeee; border-color: #8a8f98; }
