@@ -62,7 +62,7 @@
     <!-- 4 문제 인식 · 막히는 지점 -->
     <section data-sec="1" class="slide">
       <p class="eyebrow">01 문제 인식</p>
-      <h2>찾아도 공부해도 어려운 주린이</h2>
+      <h2>주식초보자의 어려움</h2>
       <div class="blocks">
         <div class="block">
           <p class="block__label">시도 1</p>
@@ -129,21 +129,22 @@
       <table class="table table--matrix">
         <thead><tr><th>항목</th><th>토스증권</th><th>Google Finance</th><th>ChatGPT 무료</th><th class="is-brand">MarketLit</th></tr></thead>
         <tbody>
-          <tr><th scope="row">근거·출처 제공</th>
-            <td>AI 시그널<small>출처 표시 확인 필요</small></td>
-            <td>답변에 인용<small>한국어 지원 확인 필요</small></td>
+          <tr><th scope="row">근거+출처 제공</th>
+            <td>AI 시그널<small>출처 표시</small></td>
+            <td>답변에 인용</td>
             <td>출처 링크<small>사용량 제한</small></td>
             <td><b class="hl">인용 + 글자 대조</b> 검증</td></tr>
           <tr><th scope="row">용어 학습 연결</th>
-            <td class="tbd">확인 필요</td>
-            <td class="tbd">확인 필요</td>
+            <td>따로 검색 필요</td>
             <td>직접 질문해야 함</td>
-            <td>학습 연결 · 개념 <mark class="stat">40개</mark></td></tr>
+            <td>직접 질문해야 함</td>
+            <td>개념과 퀴즈 제공</td></tr>
           <tr><th scope="row">초보자 이해도</th>
-            <td class="tbd">평가 필요</td>
-            <td class="tbd">평가 필요</td>
-            <td class="tbd">평가 필요</td>
-            <td class="tbd">평가 필요</td></tr>
+            <td>한자어가 많아 용어 어려움</td>
+            <td>질문 필요</td>
+            <td>질문 필요</td>
+            <td>개념 설명 포함</td>
+          </tr>
         </tbody>
       </table>
       <aside class="notes">[1:40–2:20] 비교 대상은 토스증권, Google Finance, ChatGPT 무료 버전입니다. 비교 항목은 근거와 출처 제공, 용어 학습 연결, 보고서 내용에 대한 초보자의 이해도 세 가지입니다. 토스증권도 AI 시그널로 뉴스와 공시를 분석해 변동 원인을 요약해 주는 가까운 경쟁 서비스입니다. 저희는 원인마다 인용을 붙이고 원문과 글자 단위로 대조해 검증한다는 점, 그리고 용어 학습으로 바로 이어진다는 점에서 차이를 둡니다. (표의 “확인 필요”, “평가 필요” 칸은 발표 전에 실제 서비스를 써 보고 채우세요. 확인하지 못한 내용을 단정해서 말하지 마세요.)</aside>
@@ -184,7 +185,6 @@
         <li class="card is-key"><span class="step-no">4</span><h3>보고서 생성기</h3><p class="wf-lead">생성 · 수리 · 검증 · 적재</p>
           <ul class="bullets bullets--sm"><li>시장 맥락 계산</li><li>인용 수리</li><li>글자 대조 검증</li><li>통과분만 적재</li></ul></li>
       </ol>
-      <p class="callout"><strong>실패 처리</strong> 한 건만 표시하고 <b class="hl">계속 진행</b></p>
       <aside class="notes">[5:20–5:35] 보고서는 네 단계로 만들어집니다. 수집, 분류, 어댑터, 보고서 생성기입니다. 단계마다 실패 처리가 있어서, 분류와 보고서 생성에서는 실패한 한 건만 표시하고 나머지는 계속 진행합니다. 이어서 단계별로 보겠습니다. 주의: “LLM이 도구를 스스로 고른다”고 말하지 마세요. 단계 순서와 도구 선택은 코드가 고정했고, 대신 단계 곳곳에서 스스로 오류를 감지해 수정·제거·건너뜁니다. “사람 개입 없음”은 수집→어댑터→러너 실행→적재가 자동 연결된 것을 확인한 뒤에만 주장하세요.</aside>
     </section>
 
