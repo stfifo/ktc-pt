@@ -658,3 +658,18 @@ mark.stat { background: var(--brand-100); font-weight: 700; padding: 2px 12px; b
   display: block; min-width: 0; height: auto; padding: 0; margin-bottom: 8px;
   border-radius: 0; background: none; color: var(--brand); font-size: clamp(16px, 1.6vw, 24px);
 }
+
+/* 시연: 맥 창 프레임 */
+.mac {
+  width: min(100%, 1400px, calc((100vh - 250px) * 16 / 9));
+  background: #1d1f24;
+  border: 1px solid #38404c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(16, 24, 40, .22);
+}
+.mac__bar { display: flex; gap: 8px; align-items: center; height: 32px; padding: 0 14px; background: #2b2e35; }
+.mac__bar i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.mac__bar i:nth-child(2) { background: #febc2e; }
+.mac__bar i:nth-child(3) { background: #28c840; }
+.mac .video { width: 100%; max-height: none; border: 0; border-radius: 0; }
