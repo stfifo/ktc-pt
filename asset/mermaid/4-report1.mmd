@@ -1,17 +1,18 @@
 flowchart LR
   A[입력 검사] --> B[시장 맥락 KRX] --> C{직접 언급 있나} -- 있음 --> D[보고서 생성]
-  C -- 0건 --> E[정형 보고서]
-  A -.깨짐.-> X1[멈춤]
-  B -.실패.-> F1[비교 없이 계속] --> C
-  D -.JSON 오류.-> F2[1회 재호출] --> D
-  D -.LLM 실패.-> X2[이 보고서만 실패]
-  D --> NEXT[수리로]
+  C -- 0건 --> E[정형 보고서<br/>LLM 호출 없음]
+  A -.입력 깨짐·키 없음.-> X1[전체 중단<br/>한 건도 호출 안 함]
+  B -.KRX 시세 없음.-> F1[시장 비교 문장만 빼고 계속<br/>장 마감 전 · 데이터 없음 · 호출 실패] --> C
+  D -.일시 오류.-> F3[최대 2회 재시도<br/>2초 → 4초] --> D
+  D -.형식·판정 오류.-> F2[1회 재호출] --> D
+  D -.실패·잘림·빈 응답.-> X2[이 보고서만 오류<br/>잘림 · 빈 응답은 재호출 안 함]
+  D --> NEXT[검증으로]
   E --> NEXT
-  classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
-  classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
-  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
-  classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
   class A,B,C,E,NEXT code
   class D llm
-  class F1,F2 fb
+  class F1,F2,F3 fb
   class X1,X2 stop
+  classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
+  classDef fb fill:#FFF1D6,stroke:#C2700A,stroke-width:2px,color:#111721
+  classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721

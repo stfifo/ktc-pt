@@ -1,16 +1,17 @@
 flowchart LR
   Q{인용이 원문에 있나} -- 있음 --> F[strength · 판정 확정]
-  Q -- 없음 --> R[그 항목만 고쳐 쓰기]
+  Q -- 없음 --> R[그 항목만 고쳐 쓰기 1회]
   R --> F
-  R -.그래도 없음.-> D[항목 제거] --> F
+  R -.그래도 없음.-> D[항목 제거 · 요약 다시 쓰기] --> F
+  Q -.원인 4·배경 6개 초과.-> N[고쳐 쓰지 않음] --> V
   F --> V{검증}
-  V -- passed --> L[(적재)]
-  V -- failed --> S[적재 안 함]
+  V -- passed --> L[(적재 · 한 트랜잭션)]
+  V -- "failed · 입력에 없는 출처 URL 포함" --> S[적재 안 함<br/>파일에는 기록]
   classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
   classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
-  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef fb fill:#FFF1D6,stroke:#C2700A,stroke-width:2px,color:#111721
   classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
   class Q,F,V,L code
   class R llm
-  class D fb
+  class D,N fb
   class S stop

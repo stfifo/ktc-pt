@@ -388,7 +388,7 @@ body.notes-open .nav { bottom: calc(38vh + 12px); }
 .lg::before { content: ""; width: 22px; height: 14px; border-radius: 3px; border: 2px solid var(--brand); }
 .lg--llm::before { background: var(--brand); }
 .lg--code::before { background: var(--brand-100); }
-.lg--fb::before { background: var(--surface); }
+.lg--fb::before { background: #FFF1D6; border-color: #C2700A; }
 .lg--stop::before { background: #fff; border: 2px dashed var(--neutral-700); }
 
 /* 흐름도 슬라이드는 좌우 여백을 줄여 이미지를 크게 */
@@ -661,7 +661,8 @@ mark.stat { background: var(--brand-100); font-weight: 700; padding: 2px 12px; b
 
 /* 시연: 맥 창 프레임 */
 .mac {
-  width: min(100%, 1400px, calc((100vh - 250px) * 16 / 9));
+  flex-shrink: 0;
+  width: min(100%, 1400px, calc((100vh - 340px) * 16 / 9));
   background: #1d1f24;
   border: 1px solid #38404c;
   border-radius: 12px;
@@ -673,3 +674,5 @@ mark.stat { background: var(--brand-100); font-weight: 700; padding: 2px 12px; b
 .mac__bar i:nth-child(2) { background: #febc2e; }
 .mac__bar i:nth-child(3) { background: #28c840; }
 .mac .video { width: 100%; max-height: none; border: 0; border-radius: 0; }
+
+.slide[data-sec="3"] .cols { grid-template-columns: repeat(2, 1fr); }

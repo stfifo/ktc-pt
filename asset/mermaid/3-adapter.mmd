@@ -1,13 +1,15 @@
 flowchart LR
   A[종목 검사] --> B[기간 정하기] --> C[자료 고르기] --> D[메시지 변환] --> E[묶기 · 출력]
-  A -.목록에 없음.-> X1[멈춤]
-  B -.달력 없음.-> F1[평일 규칙] --> C
-  C -.기간 밖 · 본문 없음 · 미분류.-> X2[입력에서 제외, meta 기록]
+  A -.종목표에 없음.-> X1[그 종목만 중단<br/>DB 조회 전]
+  B -.달력 못 읽음.-> F1[평일 규칙으로 기간 결정] --> C
+  C -.기간 밖·본문 없음·미분류.-> X2[그것만 제외 · cutoff 뒤 수신 포함<br/>일부는 meta에 기록]
+  C -.중복·시황 초과.-> X3[가장 긴 것 1건<br/>시황은 cutoff에 가까운 3건만]
+  C -.근거 자료 0건.-> F2[근거 빈 입력 파일 생성] --> E
   E --> OUT[입력 JSON + meta JSON]
+  class A,B,C,D,E,OUT code
+  class F1,F2 fb
+  class X1,X2,X3 stop
   classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
   classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
-  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef fb fill:#FFF1D6,stroke:#C2700A,stroke-width:2px,color:#111721
   classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
-  class A,B,C,D,E,OUT code
-  class F1 fb
-  class X1,X2 stop
