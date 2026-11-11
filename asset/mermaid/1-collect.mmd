@@ -4,19 +4,23 @@ flowchart LR
   B --> T[텔레그램]
   B --> P[증권사 리포트]
   B --> G[DART 공시]
-  N --> C[본문 처리]
+  N --> C[본문 추출]
   P --> C
   C --> D[공통 자료 ID 등록]
   T --> D
   G --> D
-  A -.범위 밖.-> X1[수집 안 함]
-  B -.API 오류.-> X2[멈춤]
-  C -.본문 실패.-> F1[사유와 함께 저장]
   D --> NEXT[② 분류로]
+  A -.범위 밖·파일 오류.-> X1[전체 중단<br/>외부 호출 전]
+  B -.기간 밖·상한 초과·중복.-> X2[그 건만 제외]
+  T -.채널 실패.-> X3[그 채널만 중단]
+  G -.API 오류.-> X4[전체 중단]
+  C -.pdftotext 빈 결과.-> F2[pypdf로 재추출]
+  C -.본문 실패.-> F1[본문 없이 저장]
+  D -.등록 실패.-> F3[원문은 보존<br/>sources register로 복구]
   classDef code fill:#EEF3FF,stroke:#1B4FD8,stroke-width:2px,color:#111721
   classDef llm fill:#1B4FD8,stroke:#143BA6,stroke-width:2px,color:#FFFFFF
-  classDef fb fill:#F3F5F8,stroke:#1B4FD8,stroke-width:2px,color:#111721
+  classDef fb fill:#FFF1D6,stroke:#C2700A,stroke-width:2px,color:#111721
   classDef stop fill:#FFFFFF,stroke:#3F4753,stroke-width:2px,stroke-dasharray:5 4,color:#111721
   class A,B,N,T,P,G,C,D,NEXT code
-  class F1 fb
-  class X1,X2 stop
+  class F1,F2,F3 fb
+  class X1,X2,X3,X4 stop
